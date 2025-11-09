@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@std/path": "jsr:@std/path@^1.1.2",
+    "ajv": "npm:ajv@^8.17.1"
+  },
+  "tasks": {
+    "sayhi": "echo hi!"
+  },
+  "nodeModulesDir": "auto",
+  "fmt": {
+    "indentWidth": 2,
+    "proseWrap": "never"
+  }
+}
