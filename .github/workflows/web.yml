@@ -1,4 +1,4 @@
-name: meow
+name: Veri Biçimlendiriciyi sun.
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/web.yml"
       - "web/**"
       - "justfile"
       - "deno.*"
@@ -21,7 +22,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: extractions/setup-just@v3
       - uses: nekowinston/setup-deno@main
-      - run: deno install -g npm:less
+      - run: deno install -g --allow-read --allow-write npm:less
       - run: just dist
       - uses: actions/upload-pages-artifact@v3
         with:
