@@ -23,15 +23,7 @@
           default = pkgs.mkShellNoCC {
             name = "tebidata";
             meta.description = "AAL TEBİGEP Ekip Üyeleri Veritabanı";
-
-            packages = builtins.attrValues {
-              inherit (pkgs)
-                just
-                deno
-                lessc
-                http-server
-                ;
-            };
+            packages = [ pkgs.deno ];
           };
         }
       );

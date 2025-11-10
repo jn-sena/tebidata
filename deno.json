@@ -1,10 +1,14 @@
 {
   "imports": {
     "@std/path": "jsr:@std/path@^1.1.2",
-    "ajv": "npm:ajv@^8.17.1"
+    "ajv": "npm:ajv@^8.17.1",
+    "http-server": "npm:http-server@^14.1.1",
+    "less": "npm:less@^4.4.2"
   },
   "tasks": {
-    "sayhi": "echo hi!"
+    "dist": "mkdir -p dist/public_html && lessc web/styles/main.less dist/public_html/style.css && deno bundle web/scripts/main.ts -o dist/public_html/main.js && cp web/index.html dist/public_html",
+    "serve": "http-server --cors -c-1 -p 4200 dist/public_html",
+    "start": "deno task dist && deno task serve"
   },
   "nodeModulesDir": "auto",
   "fmt": {

@@ -1,4 +1,4 @@
-name: Veri Biçimlendiriciyi sun.
+name: Veri Biçimlendirici
 
 on:
   workflow_dispatch:
@@ -8,7 +8,6 @@ on:
     paths:
       - ".github/workflows/web.yml"
       - "web/**"
-      - "justfile"
       - "deno.*"
 
 permissions:
@@ -20,10 +19,8 @@ jobs:
     if: github.repository == 'jn-sena/tebidata'
     steps:
       - uses: actions/checkout@v5
-      - uses: extractions/setup-just@v3
       - uses: nekowinston/setup-deno@main
-      - run: deno install -g --allow-read --allow-write npm:less
-      - run: just dist
+      - run: deno task dist
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/public_html
